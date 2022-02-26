@@ -1,0 +1,336 @@
+package principal;
+
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.ArrayList;
+public class Principal {
+
+//A continuación se crea un metodo en el cual se almacenaran los vehiculos ingresados y su precio
+//Calculando así, el vehiculo cuyo precio es el menor de todos.
+
+    public static int indiceCarrosMBarato(Carros vehiculos[]){
+    float precio;
+    int indice=0;
+    
+    precio=vehiculos[0].getPrecio();
+    for(int i=1;i<vehiculos.length;i++){
+        if(vehiculos[i].getPrecio()<precio){
+           precio=vehiculos[i].getPrecio();
+           indice=i;
+        }
+    }
+    return indice;
+    }
+    //Main principal(contiene los diferentes procesos que realizara los respectivos metodos
+    
+    public static void main(String[] args) {
+        Scanner OpcionesMenu=new Scanner(System.in);
+        boolean salida=false;
+        
+        while(!salida)
+        {char respuesta;
+        System.out.println("\n A continuacion elija la opción que desee: ");
+        System.out.println("1.Calcular el auto con el precio mas barato");
+        System.out.println("2.Calcular la moto con el precio mas barata");
+        System.out.println("3.Busqueda Secuencial de precios autos");
+        System.out.println("4.Busqueda Binaria de precios motos");
+        System.out.println("5.Arreglo para agregar");
+        System.out.println("6.Arreglo para eliminar");
+        System.out.println("7.Arreglo para editar");
+        System.out.println("8.Ordenar los datos");
+        System.out.println("A.Cerrar el programa\n");
+            
+        respuesta=OpcionesMenu.next().charAt(0);
+        switch(respuesta)
+        {
+            case '1':
+       Scanner entrada= new Scanner(System.in);
+       String marca,modelo,color;
+       float precio;
+       int numCarros,indiceBarato,anho,preciob,preciobe;
+       
+       System.out.print("Digite la cantidad de vehiculos: ");
+       numCarros=entrada.nextInt();
+       
+       //Instanciamiento del objeto llamado "Vehiculos" perteneciente a la clase "Carros"
+       
+       Carros vehiculos[]= new Carros[numCarros];
+       
+       //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
+       
+       for(int i=0;i<numCarros;i++){
+           entrada.nextLine();
+           System.out.println("Digite las caracteristicas del Carro "+(i+1)+":");
+           System.out.print("\n"+"Introdusca la Marca del carro: ");
+           marca=entrada.nextLine();
+           System.out.print("Introdusca el Modelo del carro: ");
+           modelo=entrada.nextLine();
+           System.out.print("Introdusca el color del carro: ");
+           color=entrada.nextLine();
+           System.out.print("Introdusca el año del carro: ");
+           anho=entrada.nextInt();
+           System.out.print("Introdusca el precio del carro: ");
+           precio=entrada.nextInt();
+         
+           
+           vehiculos[i]=new Carros(marca ,modelo ,color,precio,anho);
+       
+       }
+       
+       indiceBarato=indiceCarrosMBarato(vehiculos);
+       
+       System.out.println("\n"+"El coche mas barato es: ");
+       System.out.println(vehiculos[indiceBarato].mostrarDatos()); 
+        //Luego se repite el mismo proceso donde pide que ingrese los datos pero esta vez de motos.
+       //Almacenandolos en la clase Motos.
+       break;
+       
+       case '2':
+           
+       Scanner entrada2= new Scanner(System.in);
+       String marcaMoto,modeloMoto,colorMoto;
+       float precioMoto;
+       int numMotos,indiceBarata,anhoMoto;
+       
+       System.out.print("\n"+"Digite la cantidad de Motos: ");
+       numMotos=entrada2.nextInt();
+       
+       Motos Motocicletas[]= new Motos[numMotos];
+       
+       for(int i=0;i<numMotos;i++){
+           entrada2.nextLine();
+           System.out.println("Digite las caracteristicas de la Moto "+(i+1)+":");
+           System.out.print("\n"+"Introdusca la Marca de la moto: ");
+           marcaMoto=entrada2.nextLine();
+           System.out.print("Introdusca el Modelo de la moto: ");
+           modeloMoto=entrada2.nextLine();
+           System.out.print("Introdusca el color de la moto: ");
+           colorMoto=entrada2.nextLine();
+           System.out.print("Introdusca el año de la moto: ");
+           anhoMoto=entrada2.nextInt();
+           System.out.print("Introdusca el precio de la moto: ");
+           precioMoto=entrada2.nextFloat();
+           
+           Motocicletas[i]=new Motos(marcaMoto ,modeloMoto ,colorMoto,anhoMoto,precioMoto);
+           
+       }
+       indiceBarata=indiceMotosBarata(Motocicletas);
+       System.out.println("\n"+"La moto mas barata es: ");
+       System.out.println(Motocicletas[indiceBarata].datosMotos());
+       break;
+       
+       case '3':
+           
+           //BUSQUEDA DE MANERA SECUENCIAL:
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Ingrese la cantidad de autos: ");
+       int cantidad=sc.nextInt();
+       int[] arreglo=new int[cantidad];
+       
+       for(int i=0;i<arreglo.length;i++)
+       {
+       System.out.print("Ingrese el precio del auto para la posicion "+i+" del arreglo: ");
+       arreglo[i]=sc.nextInt();
+       }
+       System.out.println("El contenido del arreglo es: ");
+       for (int y=0;y<arreglo.length;y++)
+       {
+       System.out.println(" arreglo["+y+"] = " + arreglo[y]);
+       }
+      Scanner num=new Scanner(System.in); 
+      
+      System.out.println("Ingrese el precio del auto que busca: ");
+      preciob=num.nextInt();
+      
+      int num_buscado=preciob;
+       for (int e=0;e<arreglo.length;e++)
+       {
+       if(arreglo[e]==num_buscado)
+       {
+       System.out.println("El precio buscado esta en la posición: "+e);
+       
+       }
+       
+       }
+       break;
+       case '4':
+           //BUSQUEDA BINARIA:
+       Scanner sca=new Scanner(System.in);
+       System.out.println("Ingrese la cantidad de motos: ");
+       int tamano=sca.nextInt();
+       int[] arreglo2=new int[tamano];
+       
+       for(int i=0;i<arreglo2.length;i++)
+       {
+       System.out.print("Ingrese el precio de la moto para la posicion "+i+" del arreglo: ");
+       arreglo2[i]=sca.nextInt();
+       }
+       System.out.println("El contenido del arreglo es: ");
+       for (int t=0;t<arreglo2.length;t++)
+       {
+       System.out.println(" arreglo["+t+"] = " + arreglo2[t]);
+       }
+      Scanner numero=new Scanner(System.in); 
+      
+      System.out.println("Ingrese el precio de la moto que busca: ");
+      preciobe=numero.nextInt();
+       
+      int numBuscado=preciobe;
+      int inferior=0;
+      int centro;
+      int superior=tamano-1;
+      
+      while(inferior<=superior)
+      {
+      centro=(superior+inferior)/2;
+      if(arreglo2[centro]==numBuscado)
+      {
+      System.out.println("El numero buscado esta en la posición: "+centro);
+      break;
+      }else if(numBuscado<arreglo2[centro])
+      {superior=centro -1;
+              }
+      else
+      {inferior=centro+1;
+              }
+      }
+      break;
+       case '5':
+      
+      ArrayList lista=new ArrayList();
+      lista.add("Toyota");
+      lista.add("Nissan");
+      lista.add("Honda");
+      lista.add("Audi");
+      lista.add("BMW");
+     
+           System.out.println("Este es el arreglo: "+lista.toString());
+           System.out.println("Agregue una marca mas de auto: ");
+           
+           Scanner marcaAuto=new Scanner(System.in);
+           String marcaIngresada=marcaAuto.nextLine();
+           lista.add(marcaIngresada);
+           System.out.println("Este es el nuevo arreglo: "+lista.toString());
+     break;
+     
+       case '6':
+           
+           ArrayList eliminar=new ArrayList();
+      eliminar.add("Toyota");
+      eliminar.add("Nissan");
+      eliminar.add("Honda");
+      eliminar.add("Audi");
+      eliminar.add("BMW");
+     
+           System.out.println("Este es el arreglo: "+eliminar.toString());
+           System.out.println("Ingrese la marca del auto que quiere eliminar: ");
+           
+           Scanner marcaAutos=new Scanner(System.in);
+           String marcaBorrada=marcaAutos.nextLine();
+           eliminar.remove(marcaBorrada);
+           System.out.println("Este es el nuevo arreglo: "+eliminar.toString());
+     break;
+     
+     case '7':
+     ArrayList editar=new ArrayList();
+      editar.add("Rojo");
+      editar.add("Azul");
+      editar.add("Verde");
+      editar.add("Negro");
+      editar.add("Gris");
+     
+           String editarColor;
+           int posicion;
+           System.out.println("Este es el arreglo: "+editar.toString());
+           
+           Scanner editarPosicion=new Scanner(System.in);
+           System.out.println("Ingrese la posición del color del auto: ");
+           posicion=editarPosicion.nextInt();
+           posicion=posicion-1;
+           
+           Scanner editarMarca=new Scanner(System.in);
+           System.out.println("Ingrese el nuevo color del auto que quiere editar: ");
+           editarColor=editarMarca.nextLine();
+           
+           
+           editar.set(posicion,editarColor);
+           System.out.println("Este es el nuevo arreglo: "+editar.toString());
+     
+     break;
+     
+     case '8':
+         System.out.println("Arreglo original con precios de carros desordenados en bodega:");
+          int [] garaje ={3500 ,2320,1000,1200,4100,1000,3600,10000,7120,3000,8500};
+          System.out.println(Arrays.toString(garaje));
+          System.out.println("Arreglo ordenado de los precios de los carros en bodega:" + Arrays.toString(ordenarporseleccion()));
+          System.out.println("*********************************************************************************************************");
+          System.out.println("Arreglo original con precios de Motos desordenados en bodega:");
+          int [] garajem ={4000 ,3455,9901,7289,1100,1000,3640,11000,7120,3030,8600};
+          System.out.println(Arrays.toString(garaje));
+          System.out.println("Arreglo ordenado de los precios de las Motos en bodega:" + Arrays.toString(ordenarporseleccionMotos())); 
+        
+          break;
+     case 'A':
+         System.out.println("Gracias regrese pronto");
+         salida=true;
+         break;
+     default:
+         System.out.println("Esa opción no existe");
+         break;
+        }
+        
+        }
+      
+    }
+    
+    public static int indiceMotosBarata(Motos Motocicletas[]){
+    float precio;
+    int indice=0;
+    
+    precio=Motocicletas[0].getPrecioMoto();
+    for(int i=1;i<Motocicletas.length;i++){
+        if(Motocicletas[i].getPrecioMoto()<precio){
+           precio=Motocicletas[i].getPrecioMoto();
+           indice=i;
+        }
+    }
+    return indice;
+    }
+    public static int[] ordenarporseleccion ()
+        {
+        
+        int [] garaje ={3500 ,2320,1000,1200,4100,1000,3600,10000,7120,3000,8500};
+        int n= garaje.length , iMenor;
+        
+  
+        for( int i = 0; i < n-1; i++)
+        {
+            iMenor = i;
+            for (int j=i+1; j<n; j++) if(garaje[j]<garaje[iMenor]) iMenor=j;
+              int aux= garaje[i];
+            if(i != iMenor)
+                garaje[i] = garaje[iMenor];
+            garaje[iMenor]=aux;
+        }    
+        return garaje;
+        } 
+    public static int[] ordenarporseleccionMotos ()
+        {
+        
+        int [] garajem ={4000 ,3455,9901,7289,1100,1000,3640,11000,7120,3030,8600};
+        int n= garajem.length , iMenor;
+        
+  
+        for( int i = 0; i < n-1; i++)
+        {
+            iMenor = i;
+            for (int j=i+1; j<n; j++) if(garajem[j]<garajem[iMenor]) iMenor=j;
+              int temporal = garajem[i];
+            if(i != iMenor)
+                garajem[i] = garajem[iMenor];
+            garajem[iMenor]= temporal;
+        }    
+        return garajem;
+        } 
+        
+}

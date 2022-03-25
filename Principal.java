@@ -65,7 +65,7 @@ public class Principal {
         System.out.println("7.Arreglo para editar");
         System.out.println("8.Ordenar los datos");
         System.out.println("9. Calcular el camion más pesado");
-        System.out.println("A. Calcular la moto acuatica con mayor potencia de turbina");
+        System.out.println("A. Calcular la moto acuatica con menos potencia de turbina");
         System.out.println("B.Cerrar el programa\n");
             
         respuesta=OpcionesMenu.next().charAt(0);
@@ -367,7 +367,7 @@ public class Principal {
            motocicletas2[i]=new MotosAcuaticas( marcaMoto, modeloMoto, colorMoto, anhoMoto, precioMoto, potencia ,llantas);
          }
          indicepotencia=indicepotenciamoto(motocicletas2);
-         System.out.println("\n" + "La moto con mas potencia en turbinas es: ");
+         System.out.println("\n" + "La moto con menos potencia en turbinas es: ");
          System.out.println(motocicletas2[indicepotencia].mostrarDatosMotos());
          break;
 

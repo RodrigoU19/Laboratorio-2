@@ -21,6 +21,32 @@ public class Principal {
     }
     return indice;
     }
+    public static int indiceCamionPesado(CamionesPesados vehiculos2[]){
+    int capacidad;
+    int indice2=0;
+    
+    capacidad=vehiculos2[0].getCapacidad();
+    for(int i=1;i>vehiculos2.length;i++){
+        if(vehiculos2[i].getPrecio()>capacidad){
+           capacidad=vehiculos2[i].getCapacidad();
+           indice2=i;
+        }
+    }
+    return indice2;
+    }
+     public static int indicepotenciamoto(MotosAcuaticas motocicletas2[]){
+    int potencia;
+    int indice3=0;
+    
+    potencia=motocicletas2[0].getPotencia();
+    for(int i=1;i>motocicletas2.length;i++){
+        if(motocicletas2[i].getPotencia()>potencia){
+           potencia=motocicletas2[i].getPotencia();
+           indice3=i;
+        }
+    }
+    return indice3;
+    }
     //Main principal(contiene los diferentes procesos que realizara los respectivos metodos
     
     public static void main(String[] args) {
@@ -38,7 +64,9 @@ public class Principal {
         System.out.println("6.Arreglo para eliminar");
         System.out.println("7.Arreglo para editar");
         System.out.println("8.Ordenar los datos");
-        System.out.println("A.Cerrar el programa\n");
+        System.out.println("9. Calcular el camion más pesado");
+        System.out.println("A. Calcular la moto acuatica con mayor potencia de turbina");
+        System.out.println("B.Cerrar el programa\n");
             
         respuesta=OpcionesMenu.next().charAt(0);
         switch(respuesta)
@@ -270,19 +298,90 @@ public class Principal {
           System.out.println("Arreglo ordenado de los precios de las Motos en bodega:" + Arrays.toString(ordenarporseleccionMotos())); 
         
           break;
+        
+     case '9':
+       Scanner entrada3= new Scanner(System.in);
+       int capacidad,indicePesado,numCamiones;
+       String contieneFurgon;
+       
+       System.out.print("Digite la cantidad de camiones pesados: ");
+       numCamiones=entrada3.nextInt();
+       
+       CamionesPesados vehiculos2[]= new CamionesPesados[numCamiones];
+       
+    //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
+       
+       for(int i=0;i<numCamiones;i++){
+           entrada3.nextLine();
+           System.out.println("Digite las caracteristicas del Camion "+(i+1)+":");
+           System.out.print("\n"+"Introdusca la Marca del camion: ");
+           marca=entrada3.nextLine();
+           System.out.print("Introdusca el Modelo del camion: ");
+           modelo=entrada3.nextLine();
+           System.out.print("Introdusca el color del camion: ");
+           color=entrada3.nextLine();
+           System.out.print("Introdusca el precio del camion: ");
+           precio=entrada3.nextInt();
+           System.out.print("Introdusca el año del camion: ");
+           anho=entrada3.nextInt();
+           System.out.print("Introdusca la capacidad del camion(En toneladas)");
+           capacidad=entrada3.nextInt();
+           System.out.print("El camion contiene furgon? ");
+           contieneFurgon=entrada3.nextLine();
+         
+           
+           vehiculos2[i]=new CamionesPesados(marca,modelo,color,precio,anho,capacidad,contieneFurgon);
+         
+        }
+       indicePesado=indiceCamionPesado(vehiculos2);
+       
+       System.out.println("\n"+"El coche mas pesado es: ");
+       System.out.println(vehiculos2[indicePesado].mostrarDatosCamiones());
+        break;
      case 'A':
+        Scanner entrada4 =new Scanner(System.in);
+        int potencia , nummotosacuaticas,indicepotencia;
+        String llantas;
+        System.out.println("Por favor ingrese el numero de motos acuaticas que desea: ");
+        nummotosacuaticas= entrada4.nextInt();
+        MotosAcuaticas motocicletas2[] = new MotosAcuaticas[nummotosacuaticas];
+        
+        for(int i=0;i<nummotosacuaticas;i++){
+           entrada4.nextLine();
+           System.out.println("Digite las caracteristicas de la Moto Acuatica "+(i+1)+":");
+           System.out.print("\n"+"Introdusca la Marca de la moto: ");
+           marcaMoto=entrada4.nextLine();
+           System.out.print("Introdusca el Modelo de la moto acuatica: ");
+           modeloMoto=entrada4.nextLine();
+           System.out.print("Introdusca el color de moto acuatica: ");
+           colorMoto=entrada4.nextLine();
+           System.out.print("Introdusca el año de la moto acuatica: ");
+           anhoMoto=entrada4.nextInt();
+           System.out.print("Introdusca el precio de la moto acuatica: ");
+           precioMoto=entrada4.nextInt();
+           System.out.print("Introdusca la potencia de la Moto acuatica: ");
+           potencia=entrada4.nextInt();
+           System.out.print("La moto tiene llantas de respaldo?? ");
+           llantas=entrada4.nextLine();
+           
+           motocicletas2[i]=new MotosAcuaticas( marcaMoto, modeloMoto, colorMoto, anhoMoto, precioMoto, potencia ,llantas);
+         }
+         indicepotencia=indicepotenciamoto(motocicletas2);
+         System.out.println("\n" + "La moto con mas potencia en turbinas es: ");
+         System.out.println(motocicletas2[indicepotencia].mostrarDatosMotos());
+         break;
+
+    case 'B':
          System.out.println("Gracias regrese pronto");
          salida=true;
          break;
      default:
          System.out.println("Esa opción no existe");
-         break;
-        }
-        
+         break;    
         }
       
     }
-    
+    }
     public static int indiceMotosBarata(Motos Motocicletas[]){
     float precio;
     int indice=0;

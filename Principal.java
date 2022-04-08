@@ -433,11 +433,11 @@ public class Principal {
         System.out.println("\n Ingrese el precio de la moto 2:");
         preciomoto2=p.nextFloat();
         v[1]= new Motos ( "Yamaha","123","Rojo",(int) preciomoto2,2020);
-        System.out.println("El precio de la moto 1  es igual que el de la moto 2 " + v[0].igualQue(v[1]));
-        System.out.println("El precio de la moto 1 es mayor o igual que el de la moto 2 " + v[0].mayorIgual(v[1]));
-        System.out.println("El precio de la moto 1 es mayor que el de la moto 2 " + v[0].mayorQue(v[1]));
-        System.out.println("El precio de la moto 1 es menor que el de la  moto 2 " + v[0].menorQue(v[1]));
-        System.out.println("El precio de la moto 1 es menor o igual que la moto 2 " + v[0].menorIgual(v[1]));
+        System.out.println("El precio de la moto 1 es " + (int) preciomoto1 + " es igual que el de la moto 2:" +(int) preciomoto2 + " " + v[0].igualQue(v[1]));
+        System.out.println("El precio de la moto 1 es "+(int) preciomoto1 + "mayor o igual que el de la moto 2 " +(int) preciomoto2+ v[0].mayorIgual(v[1]));
+        System.out.println("El precio de la moto 1 es "+(int)preciomoto1 + "mayor que el de la moto 2 " + (int) preciomoto2 + v[0].mayorQue(v[1]));
+        System.out.println("El precio de la moto 1 es "+(int)preciomoto1+ "menor que el de la  moto 2 " + (int)preciomoto2+ v[0].menorQue(v[1]));
+        System.out.println("El precio de la moto 1 es "+(int)preciomoto1 + "menor o igual que la moto 2 " + (int) preciomoto2+ v[0].menorIgual(v[1]));
         
     break;
     

@@ -62,38 +62,43 @@ public class Motos implements Comparadores  {
 public float tofloat(){
 
           return this.precioMoto;}
+
     @Override
-    public boolean mayorQue(Object o) {
+    public boolean mayorQue(Motos o) {
         
         Motos mot = (Motos) o;
         return this.tofloat()>mot.tofloat();
     }
 
     @Override
-    public boolean menorQue(Object o) {
+    public boolean menorQue(Motos o) {
         Motos mot = (Motos) o;
         return this.tofloat()<mot.tofloat();
     }
 
     @Override
-    public boolean igualQue(Object o) {
+    public boolean igualQue(Motos o) {
         Motos mot = (Motos) o;
         return this.tofloat()==mot.tofloat();
     }
 
     @Override
-    public boolean mayorIgual(Object o) {
+    public boolean mayorIgual(Motos o) {
         Motos mot = (Motos) o;
         return this.tofloat()>=mot.tofloat();
     }
 
     @Override
-    public boolean menorIgual(Object o) {
+    public boolean menorIgual(Motos o) {
         Motos mot = (Motos) o;
         return this.tofloat()<=mot.tofloat();
     }
-        
     
+    public Motos(float precioMoto) {
+        this.precioMoto = precioMoto;
+    }
+        
+    /*/// Autor: Salvador Arturo Manzur Rodriguez/*/
     
 }
- /*/// Autor: Salvador Arturo Manzur Rodriguez/*/
+

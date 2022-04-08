@@ -94,9 +94,7 @@ public float tofloat(){
         return this.tofloat()<=mot.tofloat();
     }
     
-    public Motos(float precioMoto) {
-        this.precioMoto = precioMoto;
-    }
+  
         
     /*/// Autor: Salvador Arturo Manzur Rodriguez/*/
     

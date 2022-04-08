@@ -429,10 +429,10 @@ public class Principal {
         System.out.println("Comparador de precios en motocicletas");
         System.out.println("\n Ingrese el precio de la moto 1:");
         preciomoto1=p.nextFloat();
-        v[0]= new Motos ( preciomoto1);
+        v[0]= new Motos ("Yamaha","123","Rojo", (int) preciomoto1, 2020);
         System.out.println("\n Ingrese el precio de la moto 2:");
         preciomoto2=p.nextFloat();
-        v[1]= new Motos ( preciomoto2);
+        v[1]= new Motos ( "Yamaha","123","Rojo",(int) preciomoto2,2020);
         System.out.println("El precio de la moto 1  es igual que el de la moto 2 " + v[0].igualQue(v[1]));
         System.out.println("El precio de la moto 1 es mayor o igual que el de la moto 2 " + v[0].mayorIgual(v[1]));
         System.out.println("El precio de la moto 1 es mayor que el de la moto 2 " + v[0].mayorQue(v[1]));

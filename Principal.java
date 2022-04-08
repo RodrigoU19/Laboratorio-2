@@ -27,7 +27,7 @@ public class Principal {
     
     capacidad=vehiculos2[0].getCapacidad();
     for(int i=1;i>vehiculos2.length;i++){
-        if(vehiculos2[i].getPrecio()>capacidad){
+        if(vehiculos2[i].getCapacidad()>capacidad){
            capacidad=vehiculos2[i].getCapacidad();
            indice2=i;
         }
@@ -65,8 +65,11 @@ public class Principal {
         System.out.println("7.Arreglo para editar");
         System.out.println("8.Ordenar los datos");
         System.out.println("9. Calcular el camion más pesado");
-        System.out.println("A. Calcular la moto acuatica con menos potencia de turbina");
-        System.out.println("B.Cerrar el programa\n");
+        System.out.println("A. Calcular la moto acuatica con menor potencia de turbina");
+        System.out.println("B. Arreglo polimorfico de carro");
+        System.out.println("C. Arreglo polimorfico de moto");
+        System.out.println("D. Uso de Interfaces como comparadores");
+        System.out.println("E. Cerrar el programa\n");
             
         respuesta=OpcionesMenu.next().charAt(0);
         switch(respuesta)
@@ -370,8 +373,75 @@ public class Principal {
          System.out.println("\n" + "La moto con menos potencia en turbinas es: ");
          System.out.println(motocicletas2[indicepotencia].mostrarDatosMotos());
          break;
-
-    case 'B':
+         
+     case 'B':
+         
+         Carros Agregar []=new Carros[1];
+         Scanner a = new Scanner(System.in);
+         Scanner b = new Scanner(System.in);
+         Scanner c = new Scanner(System.in);
+         Scanner d = new Scanner(System.in);
+         Scanner f = new Scanner(System.in);
+         System.out.println("Digite la marca del carro: ");
+         marca=a.nextLine();
+         System.out.println("Digite la modelo del carro: ");
+         modelo=b.nextLine();
+         System.out.println("Digite la color del carro: ");
+         color=c.nextLine();
+         System.out.println("Digite la precio del carro: ");
+         precio=d.nextFloat();
+         System.out.println("Digite la año del carro: ");
+         anho=f.nextInt();
+         
+          Agregar[0]=new Carros(marca,modelo,color,precio,anho);
+         System.out.println("Datos del carro: "+Agregar[0].getMarca()+","+Agregar[0].getModelo()+","+Agregar[0].getColor()+
+                 ","+Agregar[0].getPrecio()+","+Agregar[0].getAnho()+",");
+    break;  
+    
+    case 'C':
+         
+         Carros Agregar2[]=new Carros[2];
+         Scanner G = new Scanner(System.in);
+         Scanner H = new Scanner(System.in);
+         Scanner I = new Scanner(System.in);
+         Scanner J = new Scanner(System.in);
+         Scanner K = new Scanner(System.in);
+         System.out.println("Digite la marca de la moto: ");
+         marca=G.nextLine();
+         System.out.println("Digite la modelo de la moto: ");
+         modelo=H.nextLine();
+         System.out.println("Digite la color de la moto: ");
+         color=I.nextLine();
+         System.out.println("Digite la precio de la moto: ");
+         precio=J.nextFloat();
+         System.out.println("Digite la año de la moto: ");
+         anho=K.nextInt();
+         
+         Agregar2[0]=new Carros(marca,modelo,color,precio,anho);
+         System.out.println("Datos de la Moto: "+Agregar2[0].getMarca()+","+Agregar2[0].getModelo()+","+Agregar2[0].getColor()+
+                 ","+Agregar2[0].getPrecio()+","+Agregar2[0].getAnho()+",");
+    break; 
+    case 'D':
+    float preciomoto1;
+    float preciomoto2;
+        Motos v[] = new Motos[2];
+        Scanner p = new Scanner(System.in);
+        System.out.println("Comparador de precios en motocicletas");
+        System.out.println("\n Ingrese el precio de la moto 1:");
+        preciomoto1=p.nextFloat();
+        v[0]= new Motos ( preciomoto1);
+        System.out.println("\n Ingrese el precio de la moto 2:");
+        preciomoto2=p.nextFloat();
+        v[1]= new Motos ( preciomoto2);
+        System.out.println("El precio de la moto 1  es igual que el de la moto 2 " + v[0].igualQue(v[1]));
+        System.out.println("El precio de la moto 1 es mayor o igual que el de la moto 2 " + v[0].mayorIgual(v[1]));
+        System.out.println("El precio de la moto 1 es mayor que el de la moto 2 " + v[0].mayorQue(v[1]));
+        System.out.println("El precio de la moto 1 es menor que el de la  moto 2 " + v[0].menorQue(v[1]));
+        System.out.println("El precio de la moto 1 es menor o igual que la moto 2 " + v[0].menorIgual(v[1]));
+        
+    break;
+    
+    case 'E':
          System.out.println("Gracias regrese pronto");
          salida=true;
          break;
@@ -379,7 +449,8 @@ public class Principal {
          System.out.println("Esa opción no existe");
          break;    
         }
-      
+   
+        
     }
     }
     public static int indiceMotosBarata(Motos Motocicletas[]){
@@ -431,7 +502,7 @@ public class Principal {
         }    
         return garajem;
         } 
-        
+      
 }
 /*// Autores: Rodrigo Neftali Aguilar Uribe(Arreglos y Metodos de busqueda)
               Salvador Arturo Manzur Rodriguez(Metodos de ordenamiento e Interface)

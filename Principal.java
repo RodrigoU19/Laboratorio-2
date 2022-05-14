@@ -70,8 +70,7 @@ public class Principal {
         System.out.println("C. Arreglo polimorfico de moto");
         System.out.println("D. Uso de Interfaces como comparadores");
         System.out.println("E. Cerrar el programa\n");
-            
-        respuesta=OpcionesMenu.next().charAt(0);
+        respuesta=OpcionesMenu.next().toUpperCase().charAt(0);   
         switch(respuesta)
         {
             case '1':
@@ -162,16 +161,16 @@ public class Principal {
        case '3':
            
            //BUSQUEDA DE MANERA SECUENCIAL:
-       Scanner sc=new Scanner(System.in);
+       Scanner entrada3=new Scanner(System.in);
        try{
        System.out.println("Ingrese la cantidad de autos: ");
-       int cantidad=sc.nextInt();
+       int cantidad=entrada3.nextInt();
        int[] arreglo=new int[cantidad];
        
        for(int i=0;i<arreglo.length;i++)
        {
        System.out.print("Ingrese el precio del auto para la posicion "+i+" del arreglo: ");
-       arreglo[i]=sc.nextInt();
+       arreglo[i]=entrada3.nextInt();
        }
        System.out.println("El contenido del arreglo es: ");
        for (int y=0;y<arreglo.length;y++)
@@ -201,16 +200,16 @@ public class Principal {
        break;
        case '4':
            //BUSQUEDA BINARIA:
-       Scanner sca=new Scanner(System.in);
+       Scanner entrada4=new Scanner(System.in);
        try{
        System.out.println("Ingrese la cantidad de motos: ");
-       int tamano=sca.nextInt();
+       int tamano=entrada4.nextInt();
        int[] arreglo2=new int[tamano];
        
        for(int i=0;i<arreglo2.length;i++)
        {
        System.out.print("Ingrese el precio de la moto para la posicion "+i+" del arreglo: ");
-       arreglo2[i]=sca.nextInt();
+       arreglo2[i]=entrada4.nextInt();
        }
        System.out.println("El contenido del arreglo es: ");
        for (int t=0;t<arreglo2.length;t++)
@@ -342,34 +341,34 @@ public class Principal {
           break;
         
      case '9':
-       Scanner entrada3= new Scanner(System.in);
+       Scanner entrada5= new Scanner(System.in);
        int capacidad,indicePesado,numCamiones;
        String contieneFurgon;
        try{
        System.out.print("Digite la cantidad de camiones pesados: ");
-       numCamiones=entrada3.nextInt();
+       numCamiones=entrada5.nextInt();
        
        CamionesPesados vehiculos2[]= new CamionesPesados[numCamiones];
        
     //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
        
        for(int i=0;i<numCamiones;i++){
-           entrada3.nextLine();
+           entrada5.nextLine();
            System.out.println("Digite las caracteristicas del Camion "+(i+1)+":");
            System.out.print("\n"+"Introdusca la Marca del camion: ");
-           marca=entrada3.nextLine();
+           marca=entrada5.nextLine();
            System.out.print("Introdusca el Modelo del camion: ");
-           modelo=entrada3.nextLine();
+           modelo=entrada5.nextLine();
            System.out.print("Introdusca el color del camion: ");
-           color=entrada3.nextLine();
+           color=entrada5.nextLine();
            System.out.print("Introdusca el precio del camion: ");
-           precio=entrada3.nextInt();
+           precio=entrada5.nextInt();
            System.out.print("Introdusca el año del camion: ");
-           anho=entrada3.nextInt();
+           anho=entrada5.nextInt();
            System.out.print("Introdusca la capacidad del camion(En toneladas)");
-           capacidad=entrada3.nextInt();
+           capacidad=entrada5.nextInt();
            System.out.print("El camion contiene furgon? ");
-           contieneFurgon=entrada3.nextLine();
+           contieneFurgon=entrada5.nextLine();
          
            
            vehiculos2[i]=new CamionesPesados(marca,modelo,color,precio,anho,capacidad,contieneFurgon);
@@ -386,31 +385,31 @@ public class Principal {
        }
         break;
      case 'A':
-        Scanner entrada4 =new Scanner(System.in);
+        Scanner entrada6 =new Scanner(System.in);
         int potencia , nummotosacuaticas,indicepotencia;
         String llantas;
         try{
         System.out.println("Por favor ingrese el numero de motos acuaticas que desea: ");
-        nummotosacuaticas= entrada4.nextInt();
+        nummotosacuaticas= entrada6.nextInt();
         MotosAcuaticas motocicletas2[] = new MotosAcuaticas[nummotosacuaticas];
         
         for(int i=0;i<nummotosacuaticas;i++){
-           entrada4.nextLine();
+           entrada6.nextLine();
            System.out.println("Digite las caracteristicas de la Moto Acuatica "+(i+1)+":");
            System.out.print("\n"+"Introdusca la Marca de la moto: ");
-           marcaMoto=entrada4.nextLine();
+           marcaMoto=entrada6.nextLine();
            System.out.print("Introdusca el Modelo de la moto acuatica: ");
-           modeloMoto=entrada4.nextLine();
+           modeloMoto=entrada6.nextLine();
            System.out.print("Introdusca el color de moto acuatica: ");
-           colorMoto=entrada4.nextLine();
+           colorMoto=entrada6.nextLine();
            System.out.print("Introdusca el año de la moto acuatica: ");
-           anhoMoto=entrada4.nextInt();
+           anhoMoto=entrada6.nextInt();
            System.out.print("Introdusca el precio de la moto acuatica: ");
-           precioMoto=entrada4.nextInt();
+           precioMoto=entrada6.nextInt();
            System.out.print("Introdusca la potencia de la Moto acuatica: ");
-           potencia=entrada4.nextInt();
+           potencia=entrada6.nextInt();
            System.out.print("La moto tiene llantas de respaldo?? ");
-           llantas=entrada4.nextLine();
+           llantas=entrada6.nextLine();
            
            motocicletas2[i]=new MotosAcuaticas( marcaMoto, modeloMoto, colorMoto, anhoMoto, precioMoto, potencia ,llantas);
          }
@@ -427,22 +426,22 @@ public class Principal {
      case 'B':
          
          Carros Agregar []=new Carros[1];
-         Scanner a = new Scanner(System.in);
-         Scanner b = new Scanner(System.in);
-         Scanner c = new Scanner(System.in);
-         Scanner d = new Scanner(System.in);
-         Scanner f = new Scanner(System.in);
+         Scanner carro1 = new Scanner(System.in);
+         Scanner carro2 = new Scanner(System.in);
+         Scanner carro3 = new Scanner(System.in);
+         Scanner carro4 = new Scanner(System.in);
+         Scanner carro5 = new Scanner(System.in);
          try{
          System.out.println("Digite la marca del carro: ");
-         marca=a.nextLine();
+         marca=carro1.nextLine();
          System.out.println("Digite la modelo del carro: ");
-         modelo=b.nextLine();
+         modelo=carro2.nextLine();
          System.out.println("Digite la color del carro: ");
-         color=c.nextLine();
+         color=carro3.nextLine();
          System.out.println("Digite la precio del carro: ");
-         precio=d.nextFloat();
+         precio=carro4.nextFloat();
          System.out.println("Digite la año del carro: ");
-         anho=f.nextInt();
+         anho=carro5.nextInt();
          
           Agregar[0]=new Carros(marca,modelo,color,precio,anho);
          System.out.println("Datos del carro: "+Agregar[0].getMarca()+","+Agregar[0].getModelo()+","+Agregar[0].getColor()+
@@ -457,22 +456,22 @@ public class Principal {
     case 'C':
          
          Carros Agregar2[]=new Carros[2];
-         Scanner G = new Scanner(System.in);
-         Scanner H = new Scanner(System.in);
-         Scanner I = new Scanner(System.in);
-         Scanner J = new Scanner(System.in);
-         Scanner K = new Scanner(System.in);
+         Scanner carro6 = new Scanner(System.in);
+         Scanner carro7 = new Scanner(System.in);
+         Scanner carro8 = new Scanner(System.in);
+         Scanner carro9 = new Scanner(System.in);
+         Scanner carro10 = new Scanner(System.in);
          try{
          System.out.println("Digite la marca de la moto: ");
-         marca=G.nextLine();
+         marca=carro6.nextLine();
          System.out.println("Digite la modelo de la moto: ");
-         modelo=H.nextLine();
+         modelo=carro7.nextLine();
          System.out.println("Digite la color de la moto: ");
-         color=I.nextLine();
+         color=carro8.nextLine();
          System.out.println("Digite la precio de la moto: ");
-         precio=J.nextFloat();
+         precio=carro9.nextFloat();
          System.out.println("Digite la año de la moto: ");
-         anho=K.nextInt();
+         anho=carro10.nextInt();
          
          Agregar2[0]=new Carros(marca,modelo,color,precio,anho);
          System.out.println("Datos de la Moto: "+Agregar2[0].getMarca()+","+Agregar2[0].getModelo()+","+Agregar2[0].getColor()+
@@ -487,13 +486,13 @@ public class Principal {
     float preciomoto1;
     float preciomoto2;
         Motos v[] = new Motos[2];
-        Scanner p = new Scanner(System.in);
+        Scanner moto = new Scanner(System.in);
         System.out.println("Comparador de precios en motocicletas");
         System.out.println("\n Ingrese el precio de la moto 1:");
-        preciomoto1=p.nextFloat();
+        preciomoto1=moto.nextFloat();
         v[0]= new Motos ("Yamaha","123","Rojo", (int) preciomoto1, 2020);
         System.out.println("\n Ingrese el precio de la moto 2:");
-        preciomoto2=p.nextFloat();
+        preciomoto2=moto.nextFloat();
         v[1]= new Motos ( "Yamaha","123","Rojo",(int) preciomoto2,2020);
         System.out.println("El precio de la moto 1 es " + (int) preciomoto1 + " es igual que el de la moto 2:" +(int) preciomoto2 + " " + v[0].igualQue(v[1]));
         System.out.println("El precio de la moto 1 es "+(int) preciomoto1 + "mayor o igual que el de la moto 2 " +(int) preciomoto2+ v[0].mayorIgual(v[1]));

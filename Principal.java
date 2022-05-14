@@ -79,7 +79,7 @@ public class Principal {
        String marca,modelo,color;
        float precio;
        int numCarros,indiceBarato,anho,preciob,preciobe;
-       
+       try{
        System.out.print("Digite la cantidad de vehiculos: ");
        numCarros=entrada.nextInt();
        
@@ -111,7 +111,11 @@ public class Principal {
        indiceBarato=indiceCarrosMBarato(vehiculos);
        
        System.out.println("\n"+"El coche mas barato es: ");
-       System.out.println(vehiculos[indiceBarato].mostrarDatos()); 
+       System.out.println(vehiculos[indiceBarato].mostrarDatos()); }
+       catch(Exception error)
+       {
+           System.out.println("Valor invalido!!, Por favor digite nuevamente");
+       }
         //Luego se repite el mismo proceso donde pide que ingrese los datos pero esta vez de motos.
        //Almacenandolos en la clase Motos.
        break;
@@ -122,7 +126,7 @@ public class Principal {
        String marcaMoto,modeloMoto,colorMoto;
        float precioMoto;
        int numMotos,indiceBarata,anhoMoto;
-       
+       try{
        System.out.print("\n"+"Digite la cantidad de Motos: ");
        numMotos=entrada2.nextInt();
        
@@ -147,13 +151,19 @@ public class Principal {
        }
        indiceBarata=indiceMotosBarata(Motocicletas);
        System.out.println("\n"+"La moto mas barata es: ");
-       System.out.println(Motocicletas[indiceBarata].datosMotos());
+       System.out.println(Motocicletas[indiceBarata].datosMotos());}
+       catch(Exception error)
+       {
+            System.out.println("Valor invalido!!, Por favor digite nuevamente");
+       
+       }
        break;
        
        case '3':
            
            //BUSQUEDA DE MANERA SECUENCIAL:
        Scanner sc=new Scanner(System.in);
+       try{
        System.out.println("Ingrese la cantidad de autos: ");
        int cantidad=sc.nextInt();
        int[] arreglo=new int[cantidad];
@@ -183,10 +193,16 @@ public class Principal {
        }
        
        }
+       }catch(Exception error)
+       {
+            System.out.println("Valor invalido!!, Por favor digite nuevamente");
+       
+       }
        break;
        case '4':
            //BUSQUEDA BINARIA:
        Scanner sca=new Scanner(System.in);
+       try{
        System.out.println("Ingrese la cantidad de motos: ");
        int tamano=sca.nextInt();
        int[] arreglo2=new int[tamano];
@@ -225,6 +241,11 @@ public class Principal {
       {inferior=centro+1;
               }
       }
+       }catch(Exception error)
+       {
+           System.out.println("Valor invalido!!, Por favor digite nuevamente");
+       
+       }
       break;
        case '5':
       
@@ -234,14 +255,20 @@ public class Principal {
       lista.add("Honda");
       lista.add("Audi");
       lista.add("BMW");
-     
+      
+            try{
            System.out.println("Este es el arreglo: "+lista.toString());
            System.out.println("Agregue una marca mas de auto: ");
            
            Scanner marcaAuto=new Scanner(System.in);
            String marcaIngresada=marcaAuto.nextLine();
            lista.add(marcaIngresada);
-           System.out.println("Este es el nuevo arreglo: "+lista.toString());
+           System.out.println("Este es el nuevo arreglo: "+lista.toString());}
+            catch(Exception error)
+            {
+               System.out.println("Valor invalido!!, Por favor digite nuevamente"); 
+            
+            }
      break;
      
        case '6':
@@ -252,14 +279,20 @@ public class Principal {
       eliminar.add("Honda");
       eliminar.add("Audi");
       eliminar.add("BMW");
-     
+            
+            try{
            System.out.println("Este es el arreglo: "+eliminar.toString());
            System.out.println("Ingrese la marca del auto que quiere eliminar: ");
            
            Scanner marcaAutos=new Scanner(System.in);
            String marcaBorrada=marcaAutos.nextLine();
            eliminar.remove(marcaBorrada);
-           System.out.println("Este es el nuevo arreglo: "+eliminar.toString());
+           System.out.println("Este es el nuevo arreglo: "+eliminar.toString());}
+            catch(Exception error)
+            {
+                 System.out.println("Valor invalido!!, Por favor digite nuevamente");
+            
+            }
      break;
      
      case '7':
@@ -272,6 +305,7 @@ public class Principal {
      
            String editarColor;
            int posicion;
+           try{
            System.out.println("Este es el arreglo: "+editar.toString());
            
            Scanner editarPosicion=new Scanner(System.in);
@@ -285,7 +319,12 @@ public class Principal {
            
            
            editar.set(posicion,editarColor);
-           System.out.println("Este es el nuevo arreglo: "+editar.toString());
+           System.out.println("Este es el nuevo arreglo: "+editar.toString());}
+           catch(Exception error)
+           {
+               System.out.println("Valor invalido!!, Por favor digite nuevamente");
+           
+           }
      
      break;
      
@@ -306,7 +345,7 @@ public class Principal {
        Scanner entrada3= new Scanner(System.in);
        int capacidad,indicePesado,numCamiones;
        String contieneFurgon;
-       
+       try{
        System.out.print("Digite la cantidad de camiones pesados: ");
        numCamiones=entrada3.nextInt();
        
@@ -339,12 +378,18 @@ public class Principal {
        indicePesado=indiceCamionPesado(vehiculos2);
        
        System.out.println("\n"+"El coche mas pesado es: ");
-       System.out.println(vehiculos2[indicePesado].mostrarDatosCamiones());
+       System.out.println(vehiculos2[indicePesado].mostrarDatosCamiones());}
+       catch(Exception error)
+       {
+           System.out.println("Valor invalido!!, Por favor digite nuevamente");
+       
+       }
         break;
      case 'A':
         Scanner entrada4 =new Scanner(System.in);
         int potencia , nummotosacuaticas,indicepotencia;
         String llantas;
+        try{
         System.out.println("Por favor ingrese el numero de motos acuaticas que desea: ");
         nummotosacuaticas= entrada4.nextInt();
         MotosAcuaticas motocicletas2[] = new MotosAcuaticas[nummotosacuaticas];
@@ -371,7 +416,12 @@ public class Principal {
          }
          indicepotencia=indicepotenciamoto(motocicletas2);
          System.out.println("\n" + "La moto con menos potencia en turbinas es: ");
-         System.out.println(motocicletas2[indicepotencia].mostrarDatosMotos());
+         System.out.println(motocicletas2[indicepotencia].mostrarDatosMotos());}
+        catch(Exception error)
+        {
+            System.out.println("Valor invalido!!, Por favor digite nuevamente");
+        
+        }
          break;
          
      case 'B':
@@ -382,6 +432,7 @@ public class Principal {
          Scanner c = new Scanner(System.in);
          Scanner d = new Scanner(System.in);
          Scanner f = new Scanner(System.in);
+         try{
          System.out.println("Digite la marca del carro: ");
          marca=a.nextLine();
          System.out.println("Digite la modelo del carro: ");
@@ -395,7 +446,12 @@ public class Principal {
          
           Agregar[0]=new Carros(marca,modelo,color,precio,anho);
          System.out.println("Datos del carro: "+Agregar[0].getMarca()+","+Agregar[0].getModelo()+","+Agregar[0].getColor()+
-                 ","+Agregar[0].getPrecio()+","+Agregar[0].getAnho()+",");
+                 ","+Agregar[0].getPrecio()+","+Agregar[0].getAnho()+",");}
+         catch(Exception error)
+         {
+             System.out.println("Valor invalido!!, Por favor digite nuevamente");
+         
+         }
     break;  
     
     case 'C':
@@ -406,6 +462,7 @@ public class Principal {
          Scanner I = new Scanner(System.in);
          Scanner J = new Scanner(System.in);
          Scanner K = new Scanner(System.in);
+         try{
          System.out.println("Digite la marca de la moto: ");
          marca=G.nextLine();
          System.out.println("Digite la modelo de la moto: ");
@@ -419,7 +476,12 @@ public class Principal {
          
          Agregar2[0]=new Carros(marca,modelo,color,precio,anho);
          System.out.println("Datos de la Moto: "+Agregar2[0].getMarca()+","+Agregar2[0].getModelo()+","+Agregar2[0].getColor()+
-                 ","+Agregar2[0].getPrecio()+","+Agregar2[0].getAnho()+",");
+                 ","+Agregar2[0].getPrecio()+","+Agregar2[0].getAnho()+",");}
+         catch(Exception error)
+         {
+             System.out.println("Valor invalido!!, Por favor digite nuevamente");
+         
+         }
     break; 
     case 'D':
     float preciomoto1;

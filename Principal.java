@@ -50,91 +50,7 @@ public class Principal {
             }
         }
         return indice3;
-    }
-
-    
-    //Metodos:
-    public static void AutoBarato() {
-
-        Scanner entrada = new Scanner(System.in);
-        String marca, modelo, color;
-        float precio;
-        int numCarros, indiceBarato, anho;
-        try {
-            System.out.print("Digite la cantidad de vehiculos: ");
-            numCarros = entrada.nextInt();
-
-            Carros vehiculos[] = new Carros[numCarros];
-
-            //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
-            for (int i = 0; i < numCarros; i++) {
-
-                System.out.println("Digite las caracteristicas del Carro " + (i + 1) + ":");
-                System.out.print("\n" + "Introdusca la Marca del carro: ");
-                marca = entrada.nextLine();
-                System.out.print("Introdusca el Modelo del carro: ");
-                modelo = entrada.nextLine();
-                System.out.print("Introdusca el color del carro: ");
-                color = entrada.nextLine();
-                System.out.print("Introdusca el año del carro: ");
-                anho = entrada.nextInt();
-                System.out.print("Introdusca el precio del carro: ");
-                precio = entrada.nextInt();
-
-                vehiculos[i] = new Carros(marca, modelo, color, precio, anho);
-
-            }
-
-            indiceBarato = indiceCarrosMBarato(vehiculos);
-
-            System.out.println("\n" + "El coche mas barato es: ");
-            System.out.println(vehiculos[indiceBarato].mostrarDatos());
-            //Luego se repite el mismo proceso donde pide que ingrese los datos pero esta vez de motos.
-            //Almacenandolos en la clase Motos.
-        } catch (Exception error) {
-            System.out.println("Digite un valor valido, Por favor");
-        }
-
-    }
-
-    public static void MotoBarata() {
-
-        Scanner entrada2 = new Scanner(System.in);
-        String marcaMoto, modeloMoto, colorMoto;
-        float precioMoto;
-        int numMotos, indiceBarata, anhoMoto;
-        try {
-            System.out.print("\n" + "Digite la cantidad de Motos: ");
-            numMotos = entrada2.nextInt();
-
-            Motos Motocicletas[] = new Motos[numMotos];
-
-            for (int i = 0; i < numMotos; i++) {
-                entrada2.nextLine();
-                System.out.println("Digite las caracteristicas de la Moto " + (i + 1) + ":");
-                System.out.print("\n" + "Introdusca la Marca de la moto: ");
-                marcaMoto = entrada2.nextLine();
-                System.out.print("Introdusca el Modelo de la moto: ");
-                modeloMoto = entrada2.nextLine();
-                System.out.print("Introdusca el color de la moto: ");
-                colorMoto = entrada2.nextLine();
-                System.out.print("Introdusca el año de la moto: ");
-                anhoMoto = entrada2.nextInt();
-                System.out.print("Introdusca el precio de la moto: ");
-                precioMoto = entrada2.nextFloat();
-
-                Motocicletas[i] = new Motos(marcaMoto, modeloMoto, colorMoto, anhoMoto, precioMoto);
-
-            }
-            indiceBarata = indiceMotosBarata(Motocicletas);
-            System.out.println("\n" + "La moto mas barata es: ");
-            System.out.println(Motocicletas[indiceBarata].datosMotos());
-
-        } catch (Exception error) {
-            System.out.println("Digite un valor valido, Por favor");
-        }
-
-    }
+    }       
 
     public static void BusquedaSecuencialAutos() {
         
@@ -220,50 +136,9 @@ public class Principal {
 
     }
 
-    public static void CalculoCamionesPesados() {
-        
-            Scanner entrada3 = new Scanner(System.in);
-            int capacidad, indicePesado, numCamiones;
-            String contieneFurgon;
-            
-            try {
-            System.out.print("Digite la cantidad de camiones pesados: ");
-            numCamiones = entrada3.nextInt();
+   
 
-            CamionesPesados vehiculos2[] = new CamionesPesados[numCamiones];
-
-            //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
-            for (int i = 0; i < numCamiones; i++) {
-                entrada3.nextLine();
-                System.out.println("Digite las caracteristicas del Camion " + (i + 1) + ":");
-                System.out.print("\n" + "Introdusca la Marca del camion: ");
-                String marca = entrada3.nextLine();
-                System.out.print("Introdusca el Modelo del camion: ");
-                String modelo = entrada3.nextLine();
-                System.out.print("Introdusca el color del camion: ");
-                String color = entrada3.nextLine();
-                System.out.print("Introdusca el precio del camion: ");
-                int precio = entrada3.nextInt();
-                System.out.print("Introdusca el año del camion: ");
-                int anho = entrada3.nextInt();
-                System.out.print("Introdusca la capacidad del camion(En toneladas)");
-                capacidad = entrada3.nextInt();
-                System.out.print("El camion contiene furgon? ");
-                contieneFurgon = entrada3.nextLine();
-
-                vehiculos2[i] = new CamionesPesados(marca, modelo, color, precio, anho, capacidad, contieneFurgon);
-
-            }
-            indicePesado = indiceCamionPesado(vehiculos2);
-
-            System.out.println("\n" + "El coche mas pesado es: ");
-            System.out.println(vehiculos2[indicePesado].mostrarDatosCamiones());
-        } catch (Exception error) {
-            System.out.println("Digite un valor valido, Por favor");
-
-        }
-
-    }
+    
 
     public static void CalculoMotoAcuatica() {
        
@@ -506,12 +381,95 @@ public class Principal {
             switch (respuesta) {
 
                 case '1':
-                    AutoBarato();
+                   
+                    Scanner entrada = new Scanner(System.in);
+                    String marca,
+                     modelo,
+                     color;
+                    float precio;
+                    int numCarros,
+                     indiceBarato,
+                     anho;
+                    try {
+                        System.out.print("Digite la cantidad de vehiculos: ");
+                        numCarros = entrada.nextInt();
+
+                        Carros vehiculos[] = new Carros[numCarros];
+
+                        //A continuación se pide al usuario que ingrese los registros de los autos que desea almacenar.
+                        for (int i = 0; i < numCarros; i++) {
+
+                            System.out.println("Digite las caracteristicas del Carro " + (i + 1) + ":");
+                            System.out.print("\n" + "Introdusca la Marca del carro: ");
+                            marca = entrada.nextLine();
+                            System.out.print("Introdusca el Modelo del carro: ");
+                            modelo = entrada.nextLine();
+                            System.out.print("Introdusca el color del carro: ");
+                            color = entrada.nextLine();
+                            System.out.print("Introdusca el año del carro: ");
+                            anho = entrada.nextInt();
+                            System.out.print("Introdusca el precio del carro: ");
+                            precio = entrada.nextInt();
+
+                            vehiculos[i] = new Carros(marca, modelo, color, precio, anho);
+
+                        }
+
+                        indiceBarato = indiceCarrosMBarato(vehiculos);
+
+                        System.out.println("\n" + "El coche mas barato es: ");
+                        System.out.println(vehiculos[indiceBarato].mostrarDatos());
+                        //Luego se repite el mismo proceso donde pide que ingrese los datos pero esta vez de motos.
+                        //Almacenandolos en la clase Motos.
+                    } catch (Exception error) {
+                        System.out.println("Digite un valor valido, Por favor");
+                    }
+
+            
 
                     break;
 
                 case '2':
-                    MotoBarata();
+                    
+                    Scanner entrada2 = new Scanner(System.in);
+                    String marcaMoto,
+                     modeloMoto,
+                     colorMoto;
+                    float precioMoto;
+                    int numMotos,
+                     indiceBarata,
+                     anhoMoto;
+                    try {
+                        System.out.print("\n" + "Digite la cantidad de Motos: ");
+                        numMotos = entrada2.nextInt();
+
+                        Motos Motocicletas[] = new Motos[numMotos];
+
+                        for (int i = 0; i < numMotos; i++) {
+                            entrada2.nextLine();
+                            System.out.println("Digite las caracteristicas de la Moto " + (i + 1) + ":");
+                            System.out.print("\n" + "Introdusca la Marca de la moto: ");
+                            marcaMoto = entrada2.nextLine();
+                            System.out.print("Introdusca el Modelo de la moto: ");
+                            modeloMoto = entrada2.nextLine();
+                            System.out.print("Introdusca el color de la moto: ");
+                            colorMoto = entrada2.nextLine();
+                            System.out.print("Introdusca el año de la moto: ");
+                            anhoMoto = entrada2.nextInt();
+                            System.out.print("Introdusca el precio de la moto: ");
+                            precioMoto = entrada2.nextFloat();
+
+                            Motocicletas[i] = new Motos(marcaMoto, modeloMoto, colorMoto, anhoMoto, precioMoto);
+
+                        }
+                        indiceBarata = indiceMotosBarata(Motocicletas);
+                        System.out.println("\n" + "La moto mas barata es: ");
+                        System.out.println(Motocicletas[indiceBarata].datosMotos());
+
+                    } catch (Exception error) {
+                        System.out.println("Digite un valor valido, Por favor");
+                    }
+
 
                     break;
 
@@ -541,12 +499,64 @@ public class Principal {
 
                 case '8':
                     OrdenarDatos();
-                    
+                    {
+        System.out.println("Arreglo original con precios de carros desordenados en bodega:");
+                    int[] garaje = {3500, 2320, 1000, 1200, 4100, 1000, 3600, 10000, 7120, 3000, 8500};
+                    System.out.println(Arrays.toString(garaje));
+                    System.out.println("Arreglo ordenado de los precios de los carros en bodega:" + Arrays.toString(ordenarporseleccion()));
+                    System.out.println("*********************************************************************************************************");
+                    System.out.println("Arreglo original con precios de Motos desordenados en bodega:");
+                    int[] garajem = {4000, 3455, 9901, 7289, 1100, 1000, 3640, 11000, 7120, 3030, 8600};
+                    System.out.println(Arrays.toString(garaje));
+                    System.out.println("Arreglo ordenado de los precios de las Motos en bodega:" + Arrays.toString(ordenarporseleccionMotos()));
+    
+    }
+    
 
                     break;
 
                 case '9':
-                    CalculoCamionesPesados();
+                    
+                    
+                    Scanner entrada3 = new Scanner(System.in);
+                    int capacidad,
+                     indicePesado,
+                     numCamiones;
+                    String contieneFurgon;
+
+                    try {
+                        System.out.print("Digite la cantidad de camiones pesados: ");
+                        numCamiones = entrada3.nextInt();
+                        CamionesPesados vehiculos2[]=new CamionesPesados[numCamiones];
+                        for (int i = 0; i < numCamiones; i++) {
+                            entrada3.nextLine();
+                            System.out.println("Digite las caracteristicas del Camion " + (i + 1) + ":");
+                            System.out.print("\n" + "Introdusca la Marca del camion: ");
+                            String marca1 = entrada3.nextLine();
+                            System.out.print("Introdusca el Modelo del camion: ");
+                            String modelo1 = entrada3.nextLine();
+                            System.out.print("Introdusca el color del camion: ");
+                            String color1 = entrada3.nextLine();
+                            System.out.print("Introdusca el precio del camion: ");
+                            int precio1 = entrada3.nextInt();
+                            System.out.print("Introdusca el año del camion: ");
+                            int anho1 = entrada3.nextInt();
+                            System.out.print("Introdusca la capacidad del camion(En toneladas)");
+                            capacidad = entrada3.nextInt();
+                            System.out.print("El camion contiene furgon? ");
+                            contieneFurgon = entrada3.nextLine();
+
+                            vehiculos2[i] = new CamionesPesados(marca1, modelo1, color1, precio1, anho1, capacidad, contieneFurgon);
+
+                        }
+                        indicePesado = indiceCamionPesado(vehiculos2);
+
+                        System.out.println("\n" + "El coche mas pesado es: ");
+                        System.out.println(vehiculos2[indicePesado].mostrarDatosCamiones());
+                    } catch (Exception error) {
+                        System.out.println("Digite un valor valido, Por favor");
+
+                    }
 
                     break;
 
